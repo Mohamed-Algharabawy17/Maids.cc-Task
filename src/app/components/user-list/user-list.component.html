@@ -1,0 +1,38 @@
+<div *ngIf="loading$ | async" class="spinner-container">
+  <div class="custom-spinner"></div>
+</div>
+
+<div *ngIf="error$ | async" class="error-container text-center my-5">
+  <h1 class="text-danger">Cannot load users</h1>
+</div>
+
+<div class="container my-5">
+  <h1 class="text-center mb-4">User List</h1>
+  <div class="row">
+    <div class="col-md-4 col-sm-6 mb-4" *ngFor="let user of users$ | async">
+      <div
+        class="card shadow-lg border-light animate__animated animate__fadeIn"
+        (click)="viewUserDetails(user.id)"
+      >
+        <img
+          [src]="user.avatar"
+          class="card-img-top rounded-circle"
+          alt="{{ user.first_name }} {{ user.last_name }}"
+        />
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+          <p class="card-text">Click to view profile</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center mt-4">
+    <mat-paginator
+      [length]="totalUsers$ | async"
+      [pageSize]="pageSize"
+      [pageIndex]="pageIndex"
+      (page)="onPageChange($event)"
+      class="paginator-style"
+    ></mat-paginator>
+  </div>
+</div>

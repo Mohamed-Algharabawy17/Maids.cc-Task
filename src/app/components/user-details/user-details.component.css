@@ -1,0 +1,17 @@
+a:hover {
+  text-decoration: underline !important;
+  color: grey !important;
+}
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.rounded-circle{
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 0 auto;
+}

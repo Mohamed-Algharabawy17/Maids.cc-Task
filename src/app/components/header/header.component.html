@@ -1,0 +1,16 @@
+<header class="header-container w-75 m-auto rounded-bottom-5">
+  <mat-toolbar class="d-flex bg-dark gap-3 align-items-center justify-content-between pe-5 m-auto rounded-bottom-5 p-2">
+    <a type="button" (click)="goHome()" class="h-100">
+      <img src="/assets/maids_cc_logo.jpg" alt="Maids.cc Logo" class="logo image-fluad rounded-circle h-100" />
+    </a>
+    <span class="font-weight-bold text-white">Maids.cc Users Dashboard</span>
+    <mat-form-field appearance="fill" class="pt-2 mt-3 d-flex align-items-center justify-content-center">
+      <mat-label class="fs-6">Search by ID</mat-label>
+      <input
+        matInput
+        placeholder="Search by ID"
+        (input)="onSearch($event)"
+      />
+    </mat-form-field>
+  </mat-toolbar>
+</header>

@@ -1,0 +1,29 @@
+<div *ngIf="loading$ | async" class="spinner-container">
+  <div class="custom-spinner"></div>
+</div>
+
+<div *ngIf="!(loading$ | async)">
+  <div *ngIf="user$ | async as user" class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <mat-card class="rounded-4 shadow-lg border-light p-4">
+          <div class="text-center mb-3">
+            <img [src]="user.avatar" alt="{{ user.first_name }}" class="rounded-circle image-fluad border border-3 border-black" />
+          </div>
+          <mat-card-title class="text-center mb-3">
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+          </mat-card-title>
+          <mat-card-content class="text-center">
+            <p class="user-email">ID: {{ user.id }}</p>
+            <p>Email: <a [href]="'mailto:' + user.email" target="_blank" class="text-decoration-none">{{ user.email }}</a></p>
+          </mat-card-content>
+          <div class="text-center mt-4">
+            <button mat-flat-button (click)="goBack()" class="bg-dark text-white mat-elevation-z4">
+              <mat-icon>arrow_back</mat-icon> Back
+            </button>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
